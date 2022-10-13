@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Diagnostics.Metrics;
 
-internal class Program
+class Program
 {
     private static void Main(string[] args)
     {
