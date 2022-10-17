@@ -28,7 +28,7 @@ class Program
 
         //MultiDimensional Array
         int[,] positions = new int[3, 5];
-        Console.WriteLine(positions.Length);
+        Console.WriteLine("MultiDimensional Array Length of [3, 5] " + positions.Length);
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 5; j++)
@@ -65,7 +65,7 @@ class Program
             }
            
         }
-        Console.WriteLine($"\nLength of jagged array grade[{grades.Length}][] is "+grades.Length);
+        Console.WriteLine($"\nLength of jagged array grade[{grades.Length}][] is " + grades.Length);
         Console.WriteLine("Printing Jaged array");
         for (int i= 0; i < 3; i++)
         {
