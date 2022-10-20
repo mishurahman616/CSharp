@@ -16,7 +16,7 @@ if (arrayLength >= 3 && arrayLength <= 1000)
     //Taking input array element 
     for(int row= 0; row < arrayLength; row++)
     {
-        string[] colValues = Console.ReadLine().Split(" ");
+        string[] colValues = Console.ReadLine().Trim().Split(" ");
 
         for(int col= 0; col < arrayLength; col++)
         {
