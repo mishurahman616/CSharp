@@ -22,5 +22,5 @@ for (int i = 0; i < n; i++)
 }
 
 if(thirdLargest != int.MinValue)
-Console.WriteLine($"Third largest number is {thirdLargest}");
+Console.WriteLine($"Third largest number is {thirdLargest}.");
 
