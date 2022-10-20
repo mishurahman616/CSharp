@@ -1,4 +1,4 @@
-﻿Console.WriteLine("How many numbers are there? ");
+﻿Console.Write("How many numbers are there? ");
 int n = int.Parse(Console.ReadLine());
 int largest = int.MinValue, secondLargest = int.MinValue, thirdLargest = int.MinValue;
 for (int i = 0; i < n; i++)
@@ -22,5 +22,5 @@ for (int i = 0; i < n; i++)
 }
 
 if(thirdLargest != int.MinValue)
-Console.WriteLine(thirdLargest);
+Console.WriteLine($"Third largest number is {thirdLargest}");
 

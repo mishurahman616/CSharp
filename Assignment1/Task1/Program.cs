@@ -1,17 +1,26 @@
-﻿Console.Write("Enter the length of the array: ");
+﻿using System;
+Console.Write("Enter the length of the 2D array: ");
 int arrayLength = Int16.Parse(Console.ReadLine());
+Console.WriteLine(@"Enter array values in the format:
+                                            * * * *
+                                            * * * *
+                                            * * * *
+");
 int[] sum = new int[2 * arrayLength + 2];
 if (arrayLength >= 3 && arrayLength <= 1000)
 {
     int[,] arr = new int[arrayLength, arrayLength];
     
+
+
     //Taking input array element 
     for(int row= 0; row < arrayLength; row++)
     {
+        string[] colValues = Console.ReadLine().Split(" ");
+
         for(int col= 0; col < arrayLength; col++)
         {
-            Console.Write($"\nEnter the array element array[{row},{col}]: ");
-            arr[row,col] = int.Parse(Console.ReadLine());
+            arr[row,col] = int.Parse(colValues[col]);
         }
     }
 
@@ -35,13 +44,31 @@ if (arrayLength >= 3 && arrayLength <= 1000)
 
     //Finding maximum sum
     int max = int.MinValue;
-    foreach(int i in sum)
+    int pos = 0;
+    string posRowColDiagonal;
+    for(int i =0; i<sum.Length; i++)
     {
 
-        if (i > max)
+        if (sum[i] > max)
         {
-            max = i;
+            max = sum[i];
+            pos= i;
         }
     }
-    Console.WriteLine($"Maximum sum is {max}.");
+
+    //Finding maximum sum position
+    if(pos < arrayLength)
+    {
+        posRowColDiagonal = "Row "+ (pos + 1);
+    }else if(pos == arrayLength + arrayLength)
+    {
+        posRowColDiagonal = "Primary Diagonal";
+    }else if(pos==arrayLength + arrayLength + 1)
+    {
+        posRowColDiagonal = "Secondary Diagonal";
+    }
+    else { 
+        posRowColDiagonal = "Column " + (pos -arrayLength);
+    }
+    Console.WriteLine($"Maximum sum is {max} along {posRowColDiagonal}.");
 }
