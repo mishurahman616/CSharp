@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayHelperMethods", "Array
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Operator", "Operator\Operator.csproj", "{87E26995-8118-4661-9FC2-76E0AFACAF40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loop", "Loop\Loop.csproj", "{59385F2D-4BE7-4574-86FB-0EA3336EA4AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loop", "Loop\Loop.csproj", "{59385F2D-4BE7-4574-86FB-0EA3336EA4AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "String", "String\String.csproj", "{6D2943D3-EE26-4B35-AF53-0AB44E279B9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{59385F2D-4BE7-4574-86FB-0EA3336EA4AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59385F2D-4BE7-4574-86FB-0EA3336EA4AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59385F2D-4BE7-4574-86FB-0EA3336EA4AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D2943D3-EE26-4B35-AF53-0AB44E279B9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D2943D3-EE26-4B35-AF53-0AB44E279B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D2943D3-EE26-4B35-AF53-0AB44E279B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D2943D3-EE26-4B35-AF53-0AB44E279B9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

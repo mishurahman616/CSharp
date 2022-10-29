@@ -59,6 +59,7 @@ namespace OOP_Basic
             Console.WriteLine($"Color of the bottle is {this.color}");
             Console.WriteLine($"Amount of water is {this.waterAmount} L");
         }
+
         
     }
 }
