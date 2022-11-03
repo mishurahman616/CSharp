@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP Basic", "OOP Basic\OOP Basic.csproj", "{2E7C1F07-D9EB-4A93-A0FA-BA8B39F5CB42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOP Basic", "OOP Basic\OOP Basic.csproj", "{2E7C1F07-D9EB-4A93-A0FA-BA8B39F5CB42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessModifierInheritance", "AccessModifierInheritance\AccessModifierInheritance.csproj", "{64534F05-C158-46D9-9B17-65E8D0C0B66A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2E7C1F07-D9EB-4A93-A0FA-BA8B39F5CB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E7C1F07-D9EB-4A93-A0FA-BA8B39F5CB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E7C1F07-D9EB-4A93-A0FA-BA8B39F5CB42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64534F05-C158-46D9-9B17-65E8D0C0B66A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64534F05-C158-46D9-9B17-65E8D0C0B66A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64534F05-C158-46D9-9B17-65E8D0C0B66A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64534F05-C158-46D9-9B17-65E8D0C0B66A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
