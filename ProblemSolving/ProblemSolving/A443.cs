@@ -9,7 +9,7 @@ namespace ProblemSolving
     //Solution of the codeforces problem 443A - Anton and Letters
     internal class A443
     {
-        public static void Sovle()
+        public static void Solve()
         {
             bool[] distinct = new bool[26];
             Array.Fill(distinct, false);
