@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProblemSolving
 {
-    internal class A996
+    public static class A996
     {
         ////Solution of the codeforces problem 996A - Hit the Lottery
         public static void Solve()
@@ -25,5 +25,7 @@ namespace ProblemSolving
 
             Console.WriteLine(bill);
         }
+
     }
+
 }
