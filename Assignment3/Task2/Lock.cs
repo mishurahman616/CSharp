@@ -8,6 +8,21 @@ namespace Task2
 {
     public class Lock
     {
-        public string LockStatus { get; set; } // Correct lock status are: Open & Close
+        private string _lockStatus="Close";
+        public string LockStatus { 
+            get
+            {
+                return _lockStatus;
+            } 
+            set 
+            {
+                if(value == "Open" || value == "Close")
+                {
+                    _lockStatus = value;
+                }
+
+            }
+        } // Correct lock status are: Open & Close
+
     }
 }
