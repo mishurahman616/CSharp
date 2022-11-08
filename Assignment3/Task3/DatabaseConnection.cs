@@ -8,9 +8,11 @@ namespace Task3
 {
     public class DatabaseConnection
     {
+        internal readonly string connectionString;
         public DatabaseConnection(string connectionString)
         {
 
+            this.connectionString = connectionString;
         }
     }
 }
