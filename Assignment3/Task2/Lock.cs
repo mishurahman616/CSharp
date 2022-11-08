@@ -22,7 +22,7 @@ namespace Task2
                 }
 
             }
-        } // Correct lock status are: Open & Close
+        } 
 
     }
 }
