@@ -8,14 +8,18 @@ namespace Task7
 {
     public class Membership
     {
+
+        private const string _userNameInvalidMessage = "Username must be provided";
+        private const string _emailNameInvalidMessage = "Email must be provided";
+        private const string _passwordNameInvalidMessage = "Password must be provided";
         public static string Validate(string username, string email, string password)
         {
             if (string.IsNullOrWhiteSpace(username))
-                return "Username must be provided";
+                return _userNameInvalidMessage;
             if (string.IsNullOrWhiteSpace(email))
-                return "Email must be provided";
+                return _emailNameInvalidMessage;
             if (string.IsNullOrWhiteSpace(password))
-                return "Password must be provided";
+                return _passwordNameInvalidMessage;
 
             return string.Empty;
         }
