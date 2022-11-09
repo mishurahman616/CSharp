@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
+using Task6;
+
+
+Console.WriteLine(SystemDate.GetCurrentDate());
+Console.WriteLine(SystemDate.GetCurrentUtcDate());
