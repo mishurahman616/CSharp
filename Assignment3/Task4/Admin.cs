@@ -9,7 +9,6 @@ namespace Task4
 {
     public class Admin:Person
     {
-        public string FirstName { get; set; }
         public string Id { get; private set; }
         public Admin(string firstName, string lastName, string email) : base(firstName, lastName, email)
         {
