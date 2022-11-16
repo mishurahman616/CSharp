@@ -1,4 +1,4 @@
-﻿// Solution of the codefoces problem 148A-Insomnia cure
+﻿// Solution to the codefoces problem 148A-Insomnia cure
 
 int k0 = Convert.ToInt32(Console.ReadLine());
 int l0 = Convert.ToInt32(Console.ReadLine());
