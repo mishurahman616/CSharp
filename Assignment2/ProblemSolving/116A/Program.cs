@@ -1,4 +1,4 @@
-﻿//Solution of the codeforces problem 116A - Tram
+﻿//Solution to the codeforces problem 116A - Tram
 int n = Convert.ToInt32(Console.ReadLine());
 int maxPassenger = 0;
 int passengerCount = 0;
