@@ -1,4 +1,4 @@
-﻿// Solution of the codefoces problem 263A-Beutiful Matrix
+﻿// Solution to the codefoces problem 263A-Beutiful Matrix
 int[][] matrix = new int[5][];
 for(int i=0; i<5; i++)
 {
