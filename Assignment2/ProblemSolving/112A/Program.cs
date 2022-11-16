@@ -1,4 +1,4 @@
-﻿//Solution of the codeforces problem 112A - Petya and Strings
+﻿//Solution to the codeforces problem 112A - Petya and Strings
 
     string s = Console.ReadLine();
     string s1 = Console.ReadLine();
