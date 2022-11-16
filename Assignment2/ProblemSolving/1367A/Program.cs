@@ -1,4 +1,4 @@
-﻿// Solution of the codefoces problem 1367A-Short Substrings
+﻿// Solution to the codefoces problem 1367A-Short Substrings
 int t = Convert.ToInt32(Console.ReadLine());
 for(int i = 0; i < t; i++)
 {
