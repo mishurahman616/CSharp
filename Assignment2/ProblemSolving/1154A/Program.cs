@@ -1,4 +1,4 @@
-﻿//Solution of the codeforces problem 1154A - Restoring Three Numbers
+﻿//Solution to the codeforces problem 1154A - Restoring Three Numbers
 
 
 int[] x =  Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
