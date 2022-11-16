@@ -1,4 +1,4 @@
-﻿//Solution of the codeforces problem 1621A-Stable Arrangement of Rooks
+﻿//Solution to the codeforces problem 1621A-Stable Arrangement of Rooks
 int t = Convert.ToInt32(Console.ReadLine());
 for(int i = 0; i < t; i++)
 {
