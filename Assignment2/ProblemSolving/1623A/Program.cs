@@ -1,4 +1,4 @@
-﻿//Solution of the codefoces problem 1623A-Robot Cleaner
+﻿//Solution to the codefoces problem 1623A-Robot Cleaner
 int t = Convert.ToInt32(Console.ReadLine());
 for(int i = 0; i < t; i++)
 {
