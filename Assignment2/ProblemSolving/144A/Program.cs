@@ -1,4 +1,4 @@
-﻿// Solution of the codefoces problem 144A-Arrival of the General
+﻿// Solution to the codefoces problem 144A-Arrival of the General
 int n = Convert.ToInt32(Console.ReadLine());
 var arr = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
 int max = int.MinValue;
