@@ -1,4 +1,4 @@
-﻿// Solution of the codeforces problem 1343B - Balanced Array
+﻿// Solution to the codeforces problem 1343B - Balanced Array
 int t = Convert.ToInt32(Console.ReadLine());
 for(int i = 0; i < t; i++)
 {
