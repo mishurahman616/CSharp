@@ -4,42 +4,25 @@ int onePlace = data[3] - '0';
 int tenPlace = data[2] - '0';
 int hundredPlace = data[1] - '0';
 int thousandPlace = data[0] - '0';
-bool change = false;
+
 while (true)
 {
 
     if (onePlace == 9)
     {
         onePlace= 0;
-        if (tenPlace == 9) 
-        { 
-            change = true; 
-        }
-        else 
-        {
-            tenPlace++;
-            change = false;
-        }
-
+        tenPlace++;
     }
     else
     {
         onePlace++;
     }
-    if(tenPlace== 9 && change)
+    if(tenPlace>9)
     {
         tenPlace= 0;
-        if(hundredPlace== 9) 
-        { 
-            change = true;
-        }
-        else
-        {
-            hundredPlace++;
-            change = false;
-        }
+        hundredPlace++;
     } 
-    if(hundredPlace== 9 && change)
+    if(hundredPlace> 9)
     {
         hundredPlace= 0;
         thousandPlace+= 1;
