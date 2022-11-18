@@ -7,7 +7,7 @@ int thousandPlace = data[0] - '0';
 bool change = false;
 while (true)
 {
-    Console.WriteLine($"{thousandPlace}{hundredPlace}{tenPlace}{onePlace}");
+
     if (onePlace == 9)
     {
         onePlace= 0;
