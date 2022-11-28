@@ -6,14 +6,21 @@ using System.Threading.Tasks;
 
 namespace Task4
 {
-    public abstract class Product
+    public class Product : IProduct
     {
         public string Name { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
 
-        public abstract string GenerateQRCode();
-        public abstract string GetDiscount(double discountPercent);
+        public string GenerateQRCode()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetDiscount(double discountPercent)
+        {
+            return (Price-discountPercent).ToString();
+        }
 
         public string? GetShortName()
         {
