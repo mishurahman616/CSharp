@@ -49,9 +49,23 @@ List<SqlParameter> parameters= new List<SqlParameter>();
 DataUtility datautility = new DataUtility();
 //dataUtility.ExecuteCommand(insertQuery, parameters);
 
-string selectQuery = "SELECT TOP(10) * from Courses";
-   List<Dictionary<string, object>> result = datautility.ExecuteQuery(selectQuery, parameters);
-   foreach(var rs in result)
-{
-    Console.WriteLine(rs["title"]);
-}
+//Select Query
+//string selectQuery = "SELECT TOP(10) * from Courses";
+//   List<Dictionary<string, object>> result = datautility.ExecuteQuery(selectQuery, parameters);
+//Console.WriteLine(result.Count);
+
+//Delete Query
+//string deleteQuery = "DELETE FROM Courses WHERE id=6";
+//Console.WriteLine(datautility.ExecuteCommand(deleteQuery, parameters));
+
+
+//Update Query
+
+Console.Write("Enter course title to edit fees: ");
+string title = Console.ReadLine();
+Console.Write("\nEnter course fees: ");
+double fees = Convert.ToDouble(Console.ReadLine());
+string updateQuery = "UPDATE Courses SET fees=@fees WHERE title=@title";
+parameters.Add(new SqlParameter("title", @title));
+parameters.Add(new SqlParameter("fees", @fees));
+Console.WriteLine(datautility.ExecuteCommand(updateQuery, parameters));
