@@ -1,4 +1,4 @@
-﻿//Solution to the codefores problem - 1A-Theatre Square
+﻿//Solution to the codeforces problem - 1A-Theatre Square
 
 var data = Array.ConvertAll(Console.ReadLine().Trim().Split(), long.Parse);
 
