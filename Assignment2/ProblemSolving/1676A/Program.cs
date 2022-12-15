@@ -1,4 +1,4 @@
-﻿// Solution to the codefores problem - 1676A-Lucky?
+﻿// Solution to the codeforces problem - 1676A-Lucky?
 
 int n = Convert.ToInt32(Console.ReadLine());
 for(int j = 0; j < n; j++)
