@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace StudentAttendaceManagementSystem.Entities
 {
-    internal class Student
+    internal class Student:User
     {
+        public Student() { }    
+        public Student(string name, string username, string password) {
+            Name= name;
+            Username= username;
+            Password= password;
+        }
     }
 }
