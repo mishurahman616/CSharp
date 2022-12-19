@@ -4,15 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace StudentAttendaceManagementSystem.Entities
 {
     internal class Course : ICourse
     {
-        public string Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Fees { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public DateTime ClassDay { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public TimeSpan ClassTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Fees { get ; set ; }
+        public DateTime ClassDay { get; set; }
+        public DateTime ClassStartTime { get; set; }
+        public DateTime ClassEndTime { get; set; }
+        public int TotalClass { get; set; }
+
     }
 }
