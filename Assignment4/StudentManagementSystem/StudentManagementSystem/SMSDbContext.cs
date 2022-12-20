@@ -5,17 +5,18 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using StudentAttendaceManagementSystem.Entities;
+using StudentManagementSystem.Entities;
+using System.Data.SqlClient;
 
-namespace StudentAttendaceManagementSystem
+namespace StudentManagementSystem
 {
-    internal class SAMSDbContext : DbContext
+    public class SMSDbContext:DbContext
     {
         private readonly string _connectionString;
         private readonly string _migrationAssembly;
-        public SAMSDbContext()
+        public SMSDbContext()
         {
-            _connectionString = "Server=ASUS\\SQLEXPRESS;Database=SAMS;Trusted_Connection=True;";
+            _connectionString = "Server=ASUS\\SQLEXPRESS;Database=SMS;Trusted_Connection=True;encrypt=false";
             _migrationAssembly = Assembly.GetExecutingAssembly().GetName().Name;
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -30,9 +31,7 @@ namespace StudentAttendaceManagementSystem
         {
             base.OnModelCreating(modelBuilder);
         }
-        public DbSet<Admin> Admins { get; set; } 
-        public DbSet<Teacher> Teachers { get; set; }
-        public DbSet<Student> Students { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Course> Courses { get; set; }
     }
 }
