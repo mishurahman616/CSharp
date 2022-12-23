@@ -40,9 +40,9 @@ namespace StudentAttendanceSystem.Entities
         }
 
 
-        public void ShowAdminTaskList()
+        public void ShowTaskList()
         {
-            Console.WriteLine(@"Admin Area-
+            Console.WriteLine(@"Admin Area:
         1. Create Teacher
         2. Create Student
         3. Create Course

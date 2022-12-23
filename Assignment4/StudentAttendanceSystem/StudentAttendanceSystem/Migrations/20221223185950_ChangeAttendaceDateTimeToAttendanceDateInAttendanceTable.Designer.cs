@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudentAttendanceSystem;
 
@@ -11,9 +12,11 @@ using StudentAttendanceSystem;
 namespace StudentAttendanceSystem.Migrations
 {
     [DbContext(typeof(SASDbContext))]
-    partial class SASDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221223185950_ChangeAttendaceDateTimeToAttendanceDateInAttendanceTable")]
+    partial class ChangeAttendaceDateTimeToAttendanceDateInAttendanceTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,7 +75,7 @@ namespace StudentAttendanceSystem.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("Attendances");
+                    b.ToTable("Attendance");
                 });
 
             modelBuilder.Entity("StudentAttendanceSystem.Entities.Course", b =>
