@@ -1,22 +1,21 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using StudentAttendanceSystem.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using StudentManagementSystem.Entities;
-using System.Data.SqlClient;
 
-namespace StudentManagementSystem
+namespace StudentAttendanceSystem
 {
-    public class SMSDbContext:DbContext
+    public class SASDbContext:DbContext
     {
         private readonly string _connectionString;
         private readonly string _migrationAssembly;
-        public SMSDbContext()
+        public SASDbContext()
         {
-            _connectionString = "Server=ASUS\\SQLEXPRESS;Database=SMS;Trusted_Connection=True;encrypt=false";
+            _connectionString = "Server=ASUS\\SQLEXPRESS;Database=SAS;Trusted_Connection=True;encrypt=false";
             _migrationAssembly = Assembly.GetExecutingAssembly().GetName().Name;
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -30,10 +29,14 @@ namespace StudentManagementSystem
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Schedule>().ToTable("Schedules");
+            modelBuilder.Entity<CourseRegistration>().ToTable("CourseRegistrations");
+            modelBuilder.Entity<CourseRegistration>().HasKey((x) => new {x.CourseId, x.StudentId});
             base.OnModelCreating(modelBuilder);
         }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Course> Courses { get; set; }
+
+        public DbSet<Admin> Admins { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Course> Courses { get; set; }
     }
 }
