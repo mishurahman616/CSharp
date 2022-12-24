@@ -74,6 +74,7 @@ namespace StudentAttendanceSystem.Entities
                     attendance.Course = student.StudentCourses[chooseCourseOption - 1].Course;
                     attendance.CourseId = student.Id;
                     attendance.IsPresent = true;
+                    attendance.AttendanceDate = DateTime.Now.Date;
                     sasDbContext.Add(attendance);
                     sasDbContext.SaveChanges();
                     Console.WriteLine("Attendance Given Successfully");
@@ -88,10 +89,16 @@ namespace StudentAttendanceSystem.Entities
 
         private bool ValidateAttendanceDateTime(Course course)
         {
+            int classCount = 0;
             foreach(var schedule in course.Schedules)
             {
-                if(schedule.ClassDay==DateTime.Today.DayOfWeek.ToString())
+                if(schedule.ClassDay==DateTime.Today.DayOfWeek.ToString() && DateTime.Today.Date>= schedule.ClassStartDate.Date)
                 {
+                    classCount++;
+                    if (classCount > schedule.TotalClass)
+                    {
+                        return false;
+                    }
                     if(schedule.ClassStartTime.Hour<=DateTime.Now.Hour && schedule.ClassEndTime.Hour<=DateTime.Now.Hour)
                     {
                         return true;

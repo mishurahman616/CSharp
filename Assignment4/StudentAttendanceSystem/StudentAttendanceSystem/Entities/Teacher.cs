@@ -56,13 +56,44 @@ namespace StudentAttendanceSystem.Entities
             Console.WriteLine("Enter Course Id");
             int courseId = Convert.ToInt32(Console.ReadLine());
             SASDbContext sasDbContext = new SASDbContext();
+            Student student = sasDbContext.Students.Where((x)=>x.Id == studentId).FirstOrDefault();
             Schedule schedule = sasDbContext.Courses.Where(x => x.Id == courseId).FirstOrDefault().Schedules[0];
-            List<Attendance> attendancePresent = sasDbContext.Attendances.Where(x => x.StudentId == studentId && x.CourseId == courseId).ToList();
-            DateTime courseEndTime = DateTime.Now.Date;
-            while (schedule.ClassStartDate <= DateTime.Now)
-            {
-
+            List<Schedule> schedules = sasDbContext.Courses.Where((x) => x.Id == courseId).FirstOrDefault().Schedules;
+            List<string> classdays = new List<string>();
+            if(student != null && schedule != null) {
+                foreach (var sce in schedules)
+                {
+                    classdays.Add(sce.ClassDay);
+                }
+                List<Attendance> attendancePresent = sasDbContext.Attendances.Where(x => x.StudentId == studentId && x.CourseId == courseId).ToList();
+                DateTime previousClassDate = schedule.ClassStartDate.Date;
+                while (previousClassDate < DateTime.Now.Date)
+                {
+                    if (attendancePresent.Count > 0)
+                    {
+                        if (attendancePresent.Contains(new Attendance { StudentId = studentId, CourseId = courseId, AttendanceDate = previousClassDate }))
+                        {
+                            Console.WriteLine($"{student.Name} {previousClassDate} {"\u221A"}");
+                        }
+                        else
+                        {
+                            if (classdays.Contains(previousClassDate.DayOfWeek.ToString()))
+                                Console.WriteLine($"{student.Name} {previousClassDate} x");
+                        }
+                    }
+                    else
+                    {
+                        if (classdays.Contains(previousClassDate.DayOfWeek.ToString()))
+                            Console.WriteLine($"{student.Name} {previousClassDate} x");
+                    }
+                    previousClassDate = previousClassDate.AddDays(1);
+                }
             }
+            else
+            {
+                Console.WriteLine("Course or Student not found");
+            }
+            
 
         }
     }
