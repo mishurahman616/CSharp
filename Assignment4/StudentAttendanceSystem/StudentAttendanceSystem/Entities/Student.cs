@@ -99,7 +99,7 @@ namespace StudentAttendanceSystem.Entities
                     {
                         return false;
                     }
-                    if(schedule.ClassStartTime.Hour<=DateTime.Now.Hour && schedule.ClassEndTime.Hour<=DateTime.Now.Hour)
+                    if(schedule.ClassStartTime.Hour<=DateTime.Now.Hour && schedule.ClassEndTime.Hour>=DateTime.Now.Hour)
                     {
                         return true;
                     }

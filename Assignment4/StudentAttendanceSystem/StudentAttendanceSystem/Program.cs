@@ -11,7 +11,6 @@ SASDbContext sasDbContext = new SASDbContext();
 //sasDbContext.Add(admin);
 //sasDbContext.SaveChanges();
 
-Console.WriteLine("\u221A");
 
 Console.WriteLine("Welcome to Student Attendace System.\n");
 //Guest.CollectLoginInfo returns tuple of username, password, usertype

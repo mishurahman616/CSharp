@@ -46,7 +46,7 @@ namespace StudentAttendanceSystem.Entities
             Console.WriteLine(@"Teachers Area:
           View Students Attendance     
         ");
-          
+            ViewStudentsAttendance();
         }
 
         public void ViewStudentsAttendance()
@@ -57,34 +57,42 @@ namespace StudentAttendanceSystem.Entities
             int courseId = Convert.ToInt32(Console.ReadLine());
             SASDbContext sasDbContext = new SASDbContext();
             Student student = sasDbContext.Students.Where((x)=>x.Id == studentId).FirstOrDefault();
-            Schedule schedule = sasDbContext.Courses.Where(x => x.Id == courseId).FirstOrDefault().Schedules[0];
-            List<Schedule> schedules = sasDbContext.Courses.Where((x) => x.Id == courseId).FirstOrDefault().Schedules;
+      //      Schedule schedule = sasDbContext.Courses.Where(x => x.Id == courseId).FirstOrDefault().Schedules[0];
+            List<Schedule> schedules = sasDbContext.Courses.Where((x) => x.Id == courseId)
+                .Include((x)=>x.Schedules)
+                .FirstOrDefault().Schedules;
             List<string> classdays = new List<string>();
-            if(student != null && schedule != null) {
+            Schedule schedule = schedules.FirstOrDefault();
+            if (student != null && schedule != null) {
                 foreach (var sce in schedules)
                 {
                     classdays.Add(sce.ClassDay);
                 }
-                List<Attendance> attendancePresent = sasDbContext.Attendances.Where(x => x.StudentId == studentId && x.CourseId == courseId).ToList();
-                DateTime previousClassDate = schedule.ClassStartDate.Date;
-                while (previousClassDate < DateTime.Now.Date)
+                List<Attendance> attendances = sasDbContext.Attendances.Where(x => x.StudentId == studentId && x.CourseId == courseId).ToList();
+                List<DateTime> presentDates = new List<DateTime>();
+                foreach(var present in attendances)
                 {
-                    if (attendancePresent.Count > 0)
+                    presentDates.Add(present.AttendanceDate.Date);
+                }
+                DateTime previousClassDate = schedule.ClassStartDate.Date;
+                while (previousClassDate <= DateTime.Now.Date)
+                {
+                    if (attendances.Count > 0)
                     {
-                        if (attendancePresent.Contains(new Attendance { StudentId = studentId, CourseId = courseId, AttendanceDate = previousClassDate }))
+                        if (presentDates.Contains(previousClassDate.Date))
                         {
-                            Console.WriteLine($"{student.Name} {previousClassDate} {"\u221A"}");
+                            Console.WriteLine($"{student.Name} {previousClassDate.ToString("dd-MM-yyyy")} {"\u221A"}");
                         }
                         else
                         {
                             if (classdays.Contains(previousClassDate.DayOfWeek.ToString()))
-                                Console.WriteLine($"{student.Name} {previousClassDate} x");
+                                Console.WriteLine($"{student.Name} {previousClassDate.ToString("dd-MM-yyyy")} x");
                         }
                     }
                     else
                     {
                         if (classdays.Contains(previousClassDate.DayOfWeek.ToString()))
-                            Console.WriteLine($"{student.Name} {previousClassDate} x");
+                            Console.WriteLine($"{student.Name} {previousClassDate.ToString("dd-MM-yyyy")} x");
                     }
                     previousClassDate = previousClassDate.AddDays(1);
                 }
