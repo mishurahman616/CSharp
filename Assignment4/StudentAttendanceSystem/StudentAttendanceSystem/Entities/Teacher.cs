@@ -57,13 +57,15 @@ namespace StudentAttendanceSystem.Entities
             int courseId = Convert.ToInt32(Console.ReadLine());
             SASDbContext sasDbContext = new SASDbContext();
             Student student = sasDbContext.Students.Where((x)=>x.Id == studentId).FirstOrDefault();
-      //      Schedule schedule = sasDbContext.Courses.Where(x => x.Id == courseId).FirstOrDefault().Schedules[0];
+            //      Schedule schedule = sasDbContext.Courses.Where(x => x.Id == courseId).FirstOrDefault().Schedules[0];
+            Course course = sasDbContext.Courses.Where((x) => x.Id == courseId).FirstOrDefault();
             List<Schedule> schedules = sasDbContext.Courses.Where((x) => x.Id == courseId)
                 .Include((x)=>x.Schedules)
                 .FirstOrDefault().Schedules;
             List<string> classdays = new List<string>();
             Schedule schedule = schedules.FirstOrDefault();
-            if (student != null && schedule != null) {
+            if (student != null && schedule != null) 
+            {
                 foreach (var sce in schedules)
                 {
                     classdays.Add(sce.ClassDay);
@@ -74,6 +76,7 @@ namespace StudentAttendanceSystem.Entities
                 {
                     presentDates.Add(present.AttendanceDate.Date);
                 }
+                Console.WriteLine($"Student Name is {student.Name} && Course is {course.Name}");
                 DateTime previousClassDate = schedule.ClassStartDate.Date;
                 while (previousClassDate <= DateTime.Now.Date)
                 {
@@ -86,13 +89,19 @@ namespace StudentAttendanceSystem.Entities
                         else
                         {
                             if (classdays.Contains(previousClassDate.DayOfWeek.ToString()))
+                            {
                                 Console.WriteLine($"{student.Name} {previousClassDate.ToString("dd-MM-yyyy")} x");
+                            }
+                                
                         }
                     }
                     else
                     {
                         if (classdays.Contains(previousClassDate.DayOfWeek.ToString()))
+                        {
                             Console.WriteLine($"{student.Name} {previousClassDate.ToString("dd-MM-yyyy")} x");
+                        }
+                            
                     }
                     previousClassDate = previousClassDate.AddDays(1);
                 }

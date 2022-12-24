@@ -72,7 +72,7 @@ namespace StudentAttendanceSystem.Entities
                     attendance.Student = student;
                     attendance.StudentId = student.Id;
                     attendance.Course = student.StudentCourses[chooseCourseOption - 1].Course;
-                    attendance.CourseId = student.Id;
+                    attendance.CourseId = student.StudentCourses[chooseCourseOption - 1].Course.Id;
                     attendance.IsPresent = true;
                     attendance.AttendanceDate = DateTime.Now.Date;
                     sasDbContext.Add(attendance);

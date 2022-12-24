@@ -11,10 +11,11 @@ SASDbContext sasDbContext = new SASDbContext();
 //sasDbContext.Add(admin);
 //sasDbContext.SaveChanges();
 
-
+login:
 Console.WriteLine("Welcome to Student Attendace System.\n");
 //Guest.CollectLoginInfo returns tuple of username, password, usertype
 var loginInfo = Guest.CollectLoginInfo();
+home:
 if (loginInfo.usertype == UserTypes.Admin)
 {
     Admin admin = (Admin)Admin.Login(loginInfo);
@@ -36,3 +37,19 @@ else
     Console.WriteLine("Invalid User Type!");
 }
 
+Console.WriteLine("\n\nPress 1 to go home page");
+Console.WriteLine("Press 2 to Logout");
+Console.WriteLine("Press 0 to Exit()");
+
+int choice = Convert.ToInt32(Console.ReadLine());
+if(choice== 1)
+{
+    goto home;
+}else if(choice== 2)
+{
+    goto login;
+}
+else
+{
+    Console.WriteLine("End.");
+}

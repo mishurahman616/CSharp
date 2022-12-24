@@ -153,6 +153,8 @@ namespace StudentAttendanceSystem.Entities
 
             int teacherOption = Convert.ToInt32(Console.ReadLine());
             string tUsername = " ";
+
+            //Add Existing Teacher
             if (teacherOption == 1)
             {
                 Console.WriteLine("Enter Teacher's username: ");
@@ -160,6 +162,7 @@ namespace StudentAttendanceSystem.Entities
 
 
             }
+            //Add New Teacher
             else if (teacherOption == 2)
             {
                 tUsername = CreateUser(UserTypes.Teacher);
@@ -311,7 +314,14 @@ namespace StudentAttendanceSystem.Entities
                         string classStart = Console.ReadLine();
                         Console.WriteLine("Enter Class End Time on" + classDay + ": like (8AM)");
                         string classEnd = Console.ReadLine();
-                        courseDays.Add((classDay, classStart, classEnd));
+                        if(classDay != null || classStart != null || classEnd != null)
+                        {
+                            courseDays.Add((classDay, classStart, classEnd));
+                        }
+                        else
+                        {
+                            Console.WriteLine("Class Day Name or Start Time or End Time invalid");
+                        }
                     }
                 }
 
@@ -322,6 +332,9 @@ namespace StudentAttendanceSystem.Entities
 
                 samsDbContext.SaveChanges();
                 Console.WriteLine("Course Schedule Added Succesfully");
+            }else
+            {
+                Console.WriteLine("No Course Found!");
             }
 
         }
