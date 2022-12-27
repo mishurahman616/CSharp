@@ -19,6 +19,7 @@ namespace StudentAttendanceSystem.Entities
         public List<CourseRegistration> CourseStudents { get; set; }
         public List<Attendance> Attendances { get; set; }
 
+        public Course() { }
         public Course(string name, double fees)
         {
             Name = name;
