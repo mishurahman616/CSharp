@@ -81,7 +81,7 @@ namespace StudentAttendanceSystem.Entities
                 }
                 else
                 {
-                    Console.WriteLine($"{DateTime.Now.DayOfWeek.ToString()} {DateTime.Now.TimeOfDay} is not your class Time!");
+                    Console.WriteLine($"{DateTime.Now.ToString("f")} is not your class Time!");
                 }
             }
 

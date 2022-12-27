@@ -93,12 +93,30 @@ namespace StudentAttendanceSystem.Entities
         {
             SASDbContext samsDbContext = new SASDbContext();
             string usertype = type.ToString();
+            EnterName:
             Console.WriteLine("Enter Name of the " + usertype);
             string name = Console.ReadLine();
+            if(name== null)
+            {
+                Console.WriteLine("Name is required");
+                goto EnterName;
+            }
+            EnterUsername:
             Console.WriteLine("Enter username of the " + usertype);
             string username = Console.ReadLine();
+            if(username== null)
+            {
+                Console.WriteLine("username is required");
+                goto EnterUsername;
+            }
+            EnterPassword:
             Console.WriteLine("Enter password for the " + usertype);
             string password = Console.ReadLine();
+            if(password== null)
+            {
+                Console.WriteLine("Password is Required");
+                goto EnterPassword;
+            }
 
             if (type == UserTypes.Teacher)
             {
@@ -134,8 +152,14 @@ namespace StudentAttendanceSystem.Entities
             Console.WriteLine("Enter Course Title: ");
             string name = Console.ReadLine();
             if (name.Trim() == null) goto EnterValidName;
+            EnterValidFees:
             Console.WriteLine("Enter Course Fees: ");
             double fees = Convert.ToDouble(Console.ReadLine());
+            if (fees < 0)
+            {
+                Console.WriteLine("Enter Valid Fees");
+                goto EnterValidFees;
+            }
 
             //Console.WriteLine("Enter Class Start Date(dd-MM--yyyy): ");
             //enterValidDate:
