@@ -76,10 +76,12 @@ namespace StudentAttendanceSystem.Entities
                 {
                     presentDates.Add(present.AttendanceDate.Date);
                 }
-                Console.WriteLine($"Student Name is {student.Name} && Course is {course.Name}");
+                Console.WriteLine($"Student Name is {student.Name:15} && Course is {course.Name}");
+                Console.WriteLine("Attendance Report: \n\n");
                 DateTime previousClassDate = schedule.ClassStartDate.Date;
                 while (previousClassDate <= DateTime.Now.Date)
                 {
+                    
                     if (attendances.Count > 0)
                     {
                         if (presentDates.Contains(previousClassDate.Date))

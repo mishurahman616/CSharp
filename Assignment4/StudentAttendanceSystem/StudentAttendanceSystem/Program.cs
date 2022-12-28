@@ -25,12 +25,12 @@ if (loginInfo.usertype == UserTypes.Admin)
 else if (loginInfo.usertype == UserTypes.Teacher)
 {
     Teacher teacher = (Teacher)Teacher.Login(loginInfo);
-    teacher.ShowTaskList();
+    teacher?.ShowTaskList();
 }
 else if (loginInfo.usertype == UserTypes.Student)
 {
     Student student = (Student)Student.Login(loginInfo);
-    student.ShowTaskList();
+    student?.ShowTaskList();
 }
 else
 {

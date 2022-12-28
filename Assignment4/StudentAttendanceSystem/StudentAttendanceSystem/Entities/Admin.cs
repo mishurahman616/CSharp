@@ -223,6 +223,7 @@ namespace StudentAttendanceSystem.Entities
             course = samsDbContext.Courses.Where(x => x.Id == courseId).FirstOrDefault();
             if (course != null)
             {
+                Console.WriteLine("Selected Course is : "+course.Name);
                 Console.WriteLine(@"1. Assign existing teacher to course
 2. Assign new Teacher to course");
 
@@ -243,6 +244,7 @@ namespace StudentAttendanceSystem.Entities
                 Teacher teacher = samsDbContext.Teachers.Where(x => x.Username == tUsername.Trim()).FirstOrDefault();
                 if (teacher != null)
                 {
+                    Console.WriteLine($"You are assigning {teacher.Name} as Teacher to the course {course.Name}");
                     course.Teacher = teacher;
                 }
                 else
@@ -291,6 +293,7 @@ namespace StudentAttendanceSystem.Entities
                 {
                     course.CourseStudents = new List<CourseRegistration>();
                     course.CourseStudents.Add(new CourseRegistration { Student = student });
+                    Console.WriteLine($"You are assigning {student.Name} as Student to the course {course.Name}");
                 }
                 else
                 {
@@ -314,8 +317,9 @@ namespace StudentAttendanceSystem.Entities
             course = samsDbContext.Courses.Where(x => x.Id == courseId).FirstOrDefault();
             if (course != null)
             {
+                Console.WriteLine("Selected Course name is: "+course.Name);
                 course.Schedules = new List<Schedule>();
-                Console.WriteLine("Enter Class Start Date(dd-MM--yyyy): ");
+                Console.WriteLine("Enter Class Start Date(dd-MM-yyyy): ");
             enterValidDate:
                 DateTime classStartDate;
                 if (!DateTime.TryParseExact(Console.ReadLine(), "dd-MM-yyyy", null, System.Globalization.DateTimeStyles.None, out classStartDate))
@@ -332,11 +336,20 @@ namespace StudentAttendanceSystem.Entities
                 {
                     for (int i = 0; i < courseDaysCount; i++)
                     {
+                        enterValidDayName:
                         Console.WriteLine($"Enter Name of Day{i + 1}: ");
                         string classDay = Console.ReadLine();
-                        Console.WriteLine("Enter Class Start Time on" + classDay + ": like (7AM) ");
+                        if(course.nameofDays.Contains(classDay, StringComparer.OrdinalIgnoreCase)) {
+                            classDay = classDay[0].ToString().ToUpper()+classDay.Substring(1).ToLower();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid Day Name!");
+                            goto enterValidDayName;
+                        }
+                        Console.WriteLine("Enter Class Start Time on " + classDay + ": like (7AM) ");
                         string classStart = Console.ReadLine();
-                        Console.WriteLine("Enter Class End Time on" + classDay + ": like (8AM)");
+                        Console.WriteLine("Enter Class End Time on " + classDay + ": like (8AM)");
                         string classEnd = Console.ReadLine();
                         if(classDay != null || classStart != null || classEnd != null)
                         {

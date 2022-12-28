@@ -25,5 +25,7 @@ namespace StudentAttendanceSystem.Entities
             Name = name;
             Fees = fees;
         }
+        public List<string>nameofDays = new List<string>() { "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+        
     }
 }

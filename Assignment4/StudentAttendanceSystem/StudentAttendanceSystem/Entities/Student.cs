@@ -58,30 +58,37 @@ namespace StudentAttendanceSystem.Entities
                 .FirstOrDefault();
             
             int courseIndex = 1;
-            if(student != null)
+            if (student != null)
             {
-                foreach (CourseRegistration cour in student.StudentCourses)
+                if (student.StudentCourses.Count > 0)
                 {
-                    Console.WriteLine($"{courseIndex++}. {cour.Course.Name}");
-                }
-                int chooseCourseOption = Convert.ToInt32(Console.ReadLine());
-                bool isAttendanceTime = ValidateAttendanceDateTime(student.StudentCourses[chooseCourseOption - 1].Course);
-                if (isAttendanceTime)
+                
+                    foreach (CourseRegistration cour in student.StudentCourses)
+                    {
+                        Console.WriteLine($"{courseIndex++}. {cour.Course.Name}");
+                    }
+                    int chooseCourseOption = Convert.ToInt32(Console.ReadLine());
+                    bool isAttendanceTime = ValidateAttendanceDateTime(student.StudentCourses[chooseCourseOption - 1].Course);
+                    if (isAttendanceTime)
+                    {
+                        Attendance attendance = new Attendance();
+                        attendance.Student = student;
+                        attendance.StudentId = student.Id;
+                        attendance.Course = student.StudentCourses[chooseCourseOption - 1].Course;
+                        attendance.CourseId = student.StudentCourses[chooseCourseOption - 1].Course.Id;
+                        attendance.IsPresent = true;
+                        attendance.AttendanceDate = DateTime.Now.Date;
+                        sasDbContext.Add(attendance);
+                        sasDbContext.SaveChanges();
+                        Console.WriteLine("Attendance Given Successfully");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{DateTime.Now.ToString("f")} is not your class Time!");
+                    }
+                }else
                 {
-                    Attendance attendance = new Attendance();
-                    attendance.Student = student;
-                    attendance.StudentId = student.Id;
-                    attendance.Course = student.StudentCourses[chooseCourseOption - 1].Course;
-                    attendance.CourseId = student.StudentCourses[chooseCourseOption - 1].Course.Id;
-                    attendance.IsPresent = true;
-                    attendance.AttendanceDate = DateTime.Now.Date;
-                    sasDbContext.Add(attendance);
-                    sasDbContext.SaveChanges();
-                    Console.WriteLine("Attendance Given Successfully");
-                }
-                else
-                {
-                    Console.WriteLine($"{DateTime.Now.ToString("f")} is not your class Time!");
+                    Console.WriteLine("You have no course enrolled");
                 }
             }
 
