@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Task3
 {
-    internal class Stack
+    public static class Stack
     {
+        public static int Sum(this Stack<int> list)
+        {
+            int sum=0;
+            foreach (var item in list) {
+                sum += item;
+            }
+            return sum;
+        }
     }
 }
