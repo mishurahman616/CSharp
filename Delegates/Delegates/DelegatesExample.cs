@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace Delegates
 {
+    public delegate bool Print(string s);
     public class DelegatesExample
     {
-        public delegate bool Print(string s);
 
+        //public delegate bool Print(string s);
+
+        public void DoSomething(Action<string> f, string s) {
+            f(s);
+        }
+        
         public bool PrintToConsole(string s)
         {
             Console.WriteLine(s);
